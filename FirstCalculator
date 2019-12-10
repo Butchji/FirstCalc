@@ -1,0 +1,161 @@
+#include <iostream>
+#include <math.h>
+#include <conio.h>
+
+double dodawanie(double liczba1, double liczba2) {
+	std::cout << "Dodawanie\n---------------\n";
+	std::cout << "Podaj 1 liczbe:\t";
+	std::cin >> liczba1;
+	std::cout << "Podaj 2 liczbe:\t";
+	std::cin >> liczba2;
+	std::cout <<"\nWynik to:\t" << liczba1 + liczba2 << std::endl;
+	system("pause");
+	system("cls");
+	return 0;
+}
+
+double odejmowanie(double liczba1, double liczba2) {
+	std::cout << "Odejmowanie\n----------------\n";
+	std::cout << "Podaj 1 liczbe:\t";
+	std::cin >> liczba1;
+	std::cout << "Podaj 2 liczbe:\t";
+	std::cin >> liczba2;
+	std::cout << "\nWynik to:\t" << liczba1 - liczba2 << std::endl;
+	system("pause");
+	system("cls");
+	return 0;
+}
+
+double dzielenie(double liczba1, double liczba2) {
+	std::cout << "Dzielenie\n---------------\n";
+	std::cout << "Podaj 1 liczbe:\t";
+	std::cin >> liczba1;
+	std::cout << "Podaj 2 liczbe:\t";
+	std::cin >> liczba2;
+	std::cout << "\nWynik to:\t" << liczba1 / liczba2 << std::endl;
+	system("pause");
+	system("cls");
+	return 0;
+}
+
+double mnozenie(double liczba1, double liczba2) {
+	std::cout << "Mnozenie\n---------------\n";
+	std::cout << "Podaj 1 liczbe:\t";
+	std::cin >> liczba1;
+	std::cout << "Podaj 2 liczbe:\t";
+	std::cin >> liczba2;
+	std::cout << "\nWynik to:\t" << liczba1 * liczba2 << std::endl;
+	system("pause");
+	system("cls");
+	return 0;
+}
+
+double potega(double liczba1) {
+	std::cout << "Kwadrat liczby\n---------------\n";
+	std::cout << "Podaj liczbe ktorej kwadrat chcesz otrzymac:\t";
+	std::cin >> liczba1;
+	std::cout << "\nWynik to:\t" << liczba1 * liczba1 << std::endl;
+	system("pause");
+	system("cls");
+	return 0;
+}
+
+double pierwiastek(double liczba1) {
+	std::cout << "Pierwiastek\n---------------\n";
+	std::cout << "Podaj liczbe do pierwiastkowania:\t";
+	std::cin >> liczba1;
+	std::cout << "\nWynik to:\t" << sqrt(liczba1) << std::endl;
+	system("pause");
+	system("cls");
+	return 0;
+}
+
+double miejscazeroweliczenie(char miejscazerowe) {
+	double a, b, c, x1, x2;
+	std::cout << "Funkcja kwadratowa ma postac\nax^2 + bx + c\n a=/=0\n---------------";
+
+	std::cout << "\nPodaj a: ";
+	std::cin >> a;
+	if (a == 0) {
+		std::cout << "a nie moze byc rowne zero";
+	}
+	else {
+		std::cout << "\nPodaj b: ";
+		std::cin >> b;
+		std::cout << "\nPodaj c: ";
+		std::cin >> c;
+	}
+	double delta = (b * b) - (4 * a * c);
+	double pierwdelta = sqrt(delta);
+	if (delta > 0) {
+		x1 = (-b - pierwdelta) / 2 * a, x2 = (-b + pierwdelta) / 2 * a;
+		std::cout << "\nMiejsca zerowe to: " << x1 << " i " << x2;
+	}
+	else if (delta == 0) {
+		x1 = (-b / 2 * a);
+		std::cout << "\nMiejsce zerowe to: " << x1;
+	}
+	else {
+		std::cout << "\nTa funkcja nie ma miejsc zerowych.";
+	}
+	std::cout << "\n";
+	system("pause");
+	system("cls");
+	return 0;
+}
+
+double exit(char wyjscie) {
+	system("exit");
+	return 0;
+}
+
+double zaokraglanie(double liczba1) {
+	std::cout << "Zaokraglanie\n---------------\n";
+	std::cout << "Podaj liczbe do zaokraglenia(ulamek oddziel kropka, nie przecinkiem):\t";
+	std::cin >> liczba1;
+	std::cout << "\nWynik to:\t" << round(liczba1) << std::endl;
+	system("pause");
+	system("cls");
+	return 0;
+}
+
+int main(){
+	char wybor;
+	while (1) {
+		std::cout << "Jakie dzialanie chcesz wykonac?\n(W ulamkach uzywaj kropki, nie przecinka!)\n----------------------------------------------\n1.\tDodawanie\n2.\tOdejmowanie\n3.\tDzielenie\n4.\tMnozenie\n5.\tKwadrat liczby\n6.\tPierwiastek liczby\n7.\tZaokraglanie\n8.\tMiejsca zerowe funkcji kwadratowej\n9.\tOpusc kalkulator\n";
+		wybor = _getch();
+		system("cls");
+		switch (wybor) {
+			case '1':
+				dodawanie(0, 0);
+				break;
+			case '2':
+				odejmowanie(0, 0);
+				break;
+			case '3':
+				dzielenie(0, 0);
+				break;
+			case '4':
+				mnozenie(0, 0);
+				break;
+			case '5':
+				potega(0);
+				break;
+			case '6':
+				pierwiastek(0);
+				break;
+			case '7':
+				zaokraglanie(0);
+				break;
+			case '8':
+				miejscazeroweliczenie(0);
+				break;
+			case'9':
+				exit(0);
+			default:
+				std::cout << "Zly wybor!\n";
+				system("pause");
+				break;
+		}
+	}
+}
